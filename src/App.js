@@ -12,9 +12,9 @@ function App() {
   
      <Router>
       <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/create' element={<Create/>}/>
-        <Route path='/edit/:id' element={<Edit/>}/>
+        <Route path='/crud-app-react' element={<Home/>}/>
+        <Route path='/crud-app-react/create' element={<Create/>}/>
+        <Route path='/crud-app-react/edit/:id' element={<Edit/>}/>
       </Routes>
     </Router>
   </div>

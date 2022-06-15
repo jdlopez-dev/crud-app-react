@@ -21,7 +21,7 @@ function Edit() {
     news[index].Body = body;
     localStorage.setItem("listaNoticias", JSON.stringify(news));
 
-    history("/");
+    history("/crud-app-react");
   };
 
   useEffect(() => {

@@ -27,7 +27,7 @@ function Create() {
     });
     localStorage.setItem("listaNoticias", JSON.stringify(news));
 
-    history("/");
+    history("/crud-app-react");
   };
 
   return (
