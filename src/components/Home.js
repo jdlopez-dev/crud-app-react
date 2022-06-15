@@ -28,7 +28,7 @@ function Home() {
 
   return (
     <div style={{ margin: "10rem" }}>
-      <Link className="d-grid gap-2" to="/create">
+      <Link className="d-grid gap-2" to="/crud-app-react/create">
         <Button variant="warning" size="lg">
           Create
         </Button>
@@ -48,7 +48,7 @@ function Home() {
                 <td>{item.HeadLine}</td>
                 <td>{item.Body}</td>
                 <td>
-                  <Link to={`/edit/${item.id}`}>
+                  <Link to={`/crud-app-react/edit/${item.id}`}>
                     <Button variant="info">Update</Button>
                   </Link>
                 </td>
