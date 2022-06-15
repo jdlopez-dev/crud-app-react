@@ -5,7 +5,6 @@ import { Link, useNavigate } from "react-router-dom";
 import array from "./array";
 
 function Home() {
-  let history = useNavigate();
   const [news, setNews] = useState([]);
 
   function deleted(id) {
