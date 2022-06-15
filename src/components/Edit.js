@@ -32,7 +32,7 @@ function Edit() {
       setBody(item.Body);
       setNews(newsData);
     } else {
-      history("/");
+      history("/crud-app-react");
     }
   }, [id, history]);
 
@@ -69,7 +69,7 @@ function Edit() {
         </Button>
 
         {/* Redirecting to main page after editing */}
-        <Link className="d-grid gap-2" to="/">
+        <Link className="d-grid gap-2" to="/crud-app-react">
           <Button variant="warning" size="lg">
             Home
           </Button>
