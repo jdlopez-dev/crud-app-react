@@ -2,27 +2,38 @@ import React, { useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link, useNavigate } from "react-router-dom";
+import array from "./array";
 
 function Home() {
   let history = useNavigate();
-  const [news, setnews] = useState([]);
+  const [news, setNews] = useState([]);
 
   function deleted(id) {
     let index = news.findIndex((item) => item.id === id);
     news.splice(index, 1);
     localStorage.setItem("listaNoticias", JSON.stringify(news));
-    setnews(news);
+    setNews(news);
     history("/");
   }
 
   useEffect(() => {
-    // fetching the data from localstorage
-    let news = JSON.parse(localStorage.getItem("listaNoticias")) || [];
-    setnews(news);
+    let newsData = localStorage.getItem("listaNoticias");
+    if (newsData) {
+        setNews(JSON.parse(newsData));
+    } else {
+      localStorage.setItem("listaNoticias", JSON.stringify(array));
+      setNews(array);
+    }
   }, []);
 
   return (
     <div style={{ margin: "10rem" }}>
+      <Link className="d-grid gap-2" to="/create">
+        <Button variant="warning" size="lg">
+          Create
+        </Button>
+      </Link>
+      <br></br>
       <Table striped bordered hover size="sm">
         <thead>
           <tr>
@@ -52,12 +63,6 @@ function Home() {
           })}
         </tbody>
       </Table>
-
-      <Link className="d-grid gap-2" to="/create">
-        <Button variant="warning" size="lg">
-          Create
-        </Button>
-      </Link>
     </div>
   );
 }

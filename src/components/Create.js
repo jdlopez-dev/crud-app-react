@@ -19,17 +19,14 @@ function Create() {
     let uni = ids.slice(0, 8);
     let a = headLine,
       b = body;
-    
-    // pushing the values to localstorage
+
     let news = JSON.parse(localStorage.getItem("listaNoticias")) || [];
     news.push({
-        id: uni,
-        HeadLine: a,
-        Body: b,
-        }
-    );
+      id: uni,
+      HeadLine: a,
+      Body: b,
+    });
     localStorage.setItem("listaNoticias", JSON.stringify(news));
-
 
     history("/");
   };

@@ -56,7 +56,6 @@ function Edit() {
           />
         </Form.Group>
 
-        {/* Hadinling an onclick event running an edit logic */}
         <Button
           onClick={(e) => handelSubmit(e)}
           variant="primary"
