@@ -13,7 +13,6 @@ function Home() {
     news.splice(index, 1);
     localStorage.setItem("listaNoticias", JSON.stringify(news));
     setNews(news);
-    history("/");
   }
 
   useEffect(() => {
