@@ -5,12 +5,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 function Edit() {
-
   const [headLine, setHeadLine] = useState("");
   const [body, setBody] = useState("");
   const [news, setNews] = useState([]);
 
   let history = useNavigate();
+
   let { id } = useParams();
 
   const handelSubmit = (e) => {
@@ -25,13 +25,16 @@ function Edit() {
   };
 
   useEffect(() => {
-    // fetching the data from localstorage
-    let newsData = JSON.parse(localStorage.getItem("listaNoticias")) || [];
-    let item = newsData.find((item) => item.id === id);
-    setHeadLine(item.HeadLine);
-    setBody(item.Body);
-    setNews(newsData);
-  }, []);
+    if (id) {
+      let newsData = JSON.parse(localStorage.getItem("listaNoticias")) || [];
+      let item = newsData.find((i) => i.id === id);
+      setHeadLine(item.HeadLine);
+      setBody(item.Body);
+      setNews(newsData);
+    } else {
+      history("/");
+    }
+  }, [id, history]);
 
   return (
     <div>
