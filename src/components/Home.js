@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import array from "./array";
 
 function Home() {
