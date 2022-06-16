@@ -7,17 +7,16 @@ import array from "./array";
 function Home() {
   const [news, setNews] = useState([]);
 
-  function deleted(id) {
-    let index = news.findIndex((item) => item.id === id);
-    news.splice(index, 1);
-    localStorage.setItem("listaNoticias", JSON.stringify(news));
-    setNews(news);
-  }
+  const deleted = (id) => {
+    const filterData = news.filter((n) => id !== n.id);
+    setNews(filterData);
+    localStorage.setItem("listaNoticias", JSON.stringify(filterData));
+  };
 
   useEffect(() => {
     let newsData = localStorage.getItem("listaNoticias");
     if (newsData) {
-        setNews(JSON.parse(newsData));
+      setNews(JSON.parse(newsData));
     } else {
       localStorage.setItem("listaNoticias", JSON.stringify(array));
       setNews(array);
@@ -52,7 +51,7 @@ function Home() {
                 </td>
 
                 <td>
-                  <Button onClick={(e) => deleted(item.id)} variant="danger">
+                  <Button onClick={() => deleted(item.id)} variant="danger">
                     Delete
                   </Button>
                 </td>
